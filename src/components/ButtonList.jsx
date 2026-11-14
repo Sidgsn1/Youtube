@@ -1,7 +1,11 @@
+import Button from "./Button"
 
 const ButtonList = () => {
+  const btnlist=['All','Gaming','Ai','DSA','Coding']
   return (
-    <div>ButtonList</div>
+    <div className="flex gap-4">
+      {btnlist.map((btn)=><Button key={btn} name={btn} />)}
+    </div>
   )
 }
 
