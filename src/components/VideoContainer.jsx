@@ -2,8 +2,12 @@ import { useEffect, useState } from "react"
 import { YOUTUBE_VIDEOS_API } from "../utils/constants";
 import VideoCard, { AdVideoCard } from "./VideoCard";
 import { Link } from "react-router";
+import normalizeVideo from "../utils/normalizeVideo";
 
 const VideoContainer = () => {
+  //trigger for flag
+  const flag = true;
+
 
   const [videos,setVideos] = useState([])
 
@@ -12,14 +16,17 @@ const VideoContainer = () => {
       const data = await fetch(YOUTUBE_VIDEOS_API);
       const jsonData = await data.json();
 
-      // console.log(jsonData.items);
-      setVideos(jsonData.items)
+      console.log(jsonData.items);
+
+      const normalizedVideos = jsonData.items.map((videos)=>normalizeVideo(videos));
+      setVideos(normalizedVideos);
     } catch (error) {
       console.log("Error fetching videos:", error);
     }
   }
 
   useEffect(()=>{
+    if(!flag) return
     getVideos();
   },[])
 

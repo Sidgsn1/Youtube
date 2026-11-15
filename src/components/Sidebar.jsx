@@ -7,7 +7,7 @@ const Sidebar = () => {
     const isMenuOpen = useSelector((store)=>store.app.isMenuOpen);
     if(!isMenuOpen) return null //early return pattern
   return (
-    <div className="fixed top-16  left-0 overflow-y-auto w-52 p-4 h-[calc(100vh-64px)] flex flex-col gap-8 text-white">
+    <div className="fixed top-16  left-0 overflow-y-auto w-52 p-4 h-[calc(100vh-64px)] bg-black flex flex-col gap-8 text-white">
         <div className="text-xl">
             <h3><Link to="/">Home</Link></h3>
             <h3>Shorts</h3>
