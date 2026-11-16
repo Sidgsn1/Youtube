@@ -5,7 +5,7 @@ import normalizeVideo from '../utils/normalizeVideo'
 
 const WatchPageSideContainer = ({title,currentVideoId}) => {
     //trigger for flag
-    const flag = false;
+    const flag = true;
 
 
   const [relatedVideos,setRelatedVideos] = useState([])
